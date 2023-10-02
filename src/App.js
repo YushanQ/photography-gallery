@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import HeroSection from "../src/components/HeroSection"
+import { Container, Row, Col } from 'react-bootstrap';
+import { useState } from 'react';
+import { Header } from './components/Header';
+import { Menu } from './components/Menu';
+import { ImagesCollection } from './components/ImagesCollection';
+import { InformationSection } from './components/InformationSection';
+import { AboutSection } from './components/AboutSection';
+import { Footer } from './components/Footer';
+
 
 function App() {
+  const [navbarOpen, setNavbarOpen] =  useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Container>
+        <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen}/>
+        <Menu navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen}/>
+        <HeroSection/>
+        <InformationSection/>
+        <ImagesCollection/>
+        <AboutSection/>
+        <Footer/>
+      </Container>
     </div>
   );
 }
